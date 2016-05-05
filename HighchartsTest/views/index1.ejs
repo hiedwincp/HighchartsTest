@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Monthly Bank Transaction Count in each year',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Oracle Banking Transaction Table',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Bank Transaction Amount ($)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '$'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '2014',
+            data: [null, null, null, null, null, 215, 252, 265, 233, 183, 139, 96]
+        }, {
+            name: '2015',
+            data: [154, 198, 157, 113, 170, 220, 248, 241, 201, 141, 106, 86]
+        }, {
+            name: '2016',
+            data: [154, 168, 137, 153, null, null, null, null, null, null, null, null]
+        }
+        ]
+    });
+});
+
+</script>
+<body>
+Note : Report based on number of transactions per month in 2014,2015,2016. The 2014 data available from June month onwards and 2016 is on going.
+</body>
+</html>
